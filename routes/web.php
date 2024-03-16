@@ -3,9 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\indexController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('auth.login');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
 
 Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -16,4 +21,4 @@ Route::post('registerproses', [AuthController::class, 'registerproses'])->name('
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('index', [indexController::class, 'index'])->name('index');
+Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
