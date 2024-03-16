@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -15,18 +16,18 @@ class AuthController extends Controller
 
     public function loginproses(Request $request)
     {
-        $request->Validate($request, [
-            'username' =>'required',
+        $request->validate( [
+            'email' =>'required',
             'password' => 'required',
 
         ]);
 
-        $username = $request->username;
+        $email = $request->email;
         $password = $request->password;
-        if (auth()->attempt(['username' => $username, 'password' => $password])) {
-            return redirect()->route('dashboard');
+        if (auth()->attempt(['email' => $email, 'password' => $password])) {
+            return redirect()->route('index');
         } else {
-            return redirect()->back()->with('error', 'Username atau Password Salah');
+            return redirect()->back()->with('error', 'email atau Password Salah');
         }
     }
 
@@ -54,6 +55,11 @@ class AuthController extends Controller
         $user->save();
         // Redirect ke halaman setelah registrasi sukses
         return redirect('/login')->with('success', 'Registrasi berhasil! Silakan masuk.');
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login')->with('succes','Logout berhasil');
     }
 }
 

@@ -7,7 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-<h1>kontol</h1>
-<h2>hellohgfdghjl,kmjnhbgfvcdvgbhnjmk,l.sdfghnhgfds</h2>
+
+    <h1>kontol</h1>
+    <h2>hellohgfdghjl,kmjnhbgfvcdvgbhnjmk,l.sdfghnhgfds</h2>
+    <form action="{{ route('logout') }}" method="post">
+        @csrf
+    <button class="btn btn-danger" type="submit">logout</
+    </form>
 </body>
 </html>
