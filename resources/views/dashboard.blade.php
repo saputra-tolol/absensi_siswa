@@ -5,7 +5,8 @@
 @section('content')
     <!-- Hoverable Table rows -->
     <div class="card">
-        <h5 class="card-header">rows</h5>
+        <h5 class="card-header">absensi bulan</h5>
+        {{-- <input type="text" class="form-control" value="Maret" disabled> --}}
         <div class="table-responsive text-nowrap">
             <table class="table table-hover table-bordered">
                 <thead>
@@ -154,16 +155,5 @@
             </table>
         </div>
     </div>
-<<<<<<< Updated upstream
-  </div>
-  <!--/ Hoverable Table rows -->
-
-  <hr>
- @endsection
-
-
-=======
-    <!--/ Hoverable Table rows -->
     <hr>
 @endsection
->>>>>>> Stashed changes
