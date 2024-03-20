@@ -130,7 +130,7 @@
               <div class="dropdown-divider"></div>
             </li>
                           <li>
-              <a class="dropdown-item" href="../auth/login-basic.html">
+              <a class="dropdown-item" href="login">
                 <i class='ti ti-login me-2'></i>
                 <span class="align-middle">Log out</span>
               </a>
