@@ -48,6 +48,12 @@
                   <div>data siswa</div>
               </a>
           </li>
+          <li class="menu-item">
+            <a href="guru" class="menu-link" >
+              <i class="menu-icon tf-icons ti ti-user"></i>
+                <div>data guru</div>
+            </a>
+        </li>
 
 
 

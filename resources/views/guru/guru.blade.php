@@ -14,8 +14,9 @@
             <th>Profil</th>
             <th>Nama</th>
             <th>Jenis Kelamin</th>
-            <th>No.Telefone</th>
-            <th>Keterangan</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Akses Kelas</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -28,6 +29,7 @@
             <td>Laki-laki</td>
             <td>085345262</td>
             <td><span class="badge bg-label-primary me-1">hadir</span></td>
+            <td>XII</td>
             <td>
               <div class="dropdown">
                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
@@ -38,7 +40,7 @@
               </div>
             </td>
           </tr>
-            <tr>
+            {{-- <tr>
              <td>
                     <img src="{{ asset('assets/img/avatars/5.png') }}" alt="Avatar" style="width: 50px" class="rounded-circle">
             </td>
@@ -55,7 +57,7 @@
                 </div>
               </div>
             </td>
-          </tr>
+          </tr> --}}
         </tbody>
       </table>
     </div>
@@ -64,5 +66,6 @@
 
   <hr>
  @endsection
+
 
 

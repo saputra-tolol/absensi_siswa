@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\indexController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GuruController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -22,3 +23,6 @@ Route::post('registerproses', [AuthController::class, 'registerproses'])->name('
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+
+Route::get('guru', [GuruController::class, 'guru'])->name('guru');
