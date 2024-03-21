@@ -9,7 +9,7 @@ class Siswa extends Model
 {
     use HasFactory;
 
-    protected $table = 'siswa'; // Sesuaikan dengan nama tabel yang Anda buat
+   // Sesuaikan dengan nama tabel yang Anda buat
 
     protected $fillable = [
         'profile',

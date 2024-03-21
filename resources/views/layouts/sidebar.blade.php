@@ -37,13 +37,13 @@
             </a>
         </li>
           <li class="menu-item">
-              <a href="basic.html" class="menu-link" >
+              <a href="" class="menu-link" >
               <i class="menu-icon tf-icons ti ti-layout-grid"></i>
                   <div>data kelas</div>
               </a>
           </li>
           <li class="menu-item">
-              <a href="basic.html" class="menu-link" >
+              <a href="{{ ('siswa') }}" class="menu-link" >
                 <i class="menu-icon tf-icons ti ti-users"></i>
                   <div>data siswa</div>
               </a>
