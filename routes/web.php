@@ -25,10 +25,7 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-<<<<<<< Updated upstream
 
 Route::get('guru', [GuruController::class, 'guru'])->name('guru');
-=======
 Route::get('siswa', [SiswaController::class, 'siswa'])->name('siswa');
 Route::post('siswa', [SiswaController::class, 'siswa_store'])->name('siswa_store');
->>>>>>> Stashed changes
