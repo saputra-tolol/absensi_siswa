@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\indexController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
 
@@ -24,5 +25,10 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
+<<<<<<< Updated upstream
 
 Route::get('guru', [GuruController::class, 'guru'])->name('guru');
+=======
+Route::get('siswa', [SiswaController::class, 'siswa'])->name('siswa');
+Route::post('siswa', [SiswaController::class, 'siswa_store'])->name('siswa_store');
+>>>>>>> Stashed changes
