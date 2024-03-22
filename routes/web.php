@@ -33,10 +33,5 @@ Route::get('guru', [GuruController::class, 'guru'])->name('guru');
 Route::get('siswa', [SiswaController::class, 'siswa'])->name('siswa');
 Route::post('siswa', [SiswaController::class, 'siswa_store'])->name('siswa_store');
 
-
-
-
-
-
-
+Route::post('guru', [GuruController::class, 'store'])->name('guru_store');
 
