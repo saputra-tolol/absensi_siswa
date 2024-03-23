@@ -103,7 +103,7 @@
                         <td>{{ $gurus->jenis_kelamin}}</td>
                         <td>{{ $gurus->email}}</td>
                         <td>{{ $gurus->password}}</td>
-                        {{-- <td>{{ $gurus->akses_kelas}}</td> --}}
+                        <td>{{ $gurus->kelas->nama_kelas}}</td>
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

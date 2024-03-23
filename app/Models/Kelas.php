@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Kelas extends Model
 {
     use HasFactory;
-    protected $guarded = [
-    ];
+    protected $guarded = [];
+
+    public function siswa()
+    {
+        return $this->hasMany(Siswa::class);
+    }
+
+    public function absensi()
+    {
+        return $this->hasMany(Absensi::class);
+    }
 }

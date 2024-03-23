@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->unsignedBigInteger('kelas_id')->nullable();
+            $table->foreignId('kelas_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

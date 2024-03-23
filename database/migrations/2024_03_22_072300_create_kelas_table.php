@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_kelas');
             $table->string('jurusan');
-            $table->unsignedBigInteger('wali_kelas')->nullable();
+            $table->unsignedBigInteger('guru_id')->nullable();
+            $table->foreignId('guru_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

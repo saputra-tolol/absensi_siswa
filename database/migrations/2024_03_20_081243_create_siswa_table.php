@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('no_telfone');
             $table->unsignedBigInteger('kelas_id')->nullable();
-
+            $table->foreignId('kelas_id')->nullable()->constrained();
         });
     }
 
