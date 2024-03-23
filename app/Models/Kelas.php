@@ -19,4 +19,10 @@ class Kelas extends Model
     {
         return $this->hasMany(Absensi::class);
     }
+
+
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class);
+    }
 }
