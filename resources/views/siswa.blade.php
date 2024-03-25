@@ -1,74 +1,127 @@
 @extends('layouts.main')
+@push('styles')
+@endpush
 @section('content')
-    <h1>Data Siswa</h1>
+    <!-- Hoverable Table rows -->
+    <div class="card">
+        <h5 class="card-header">Hoverable rows</h5>
+        <div class="table-responsive text-nowrap">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button>
 
-    <!-- Form Tambah Siswa -->
-    <h2>Tambah Siswa</h2>
-    <form action="{{ route('siswa_store') }}" method="POST">
-        @csrf
-        <label for="profile">Profile:</label>
-        <input type="text" name="profile" id="profile"><br>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('siswa_store') }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Profile</label>
+                                    <input type="file" name="profile" class="form-control" id="exampleFormControlInput1">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Nama Siswa</label>
+                                    <input type="text" name="nama_siswa" class="form-control"
+                                        id="exampleFormControlInput1" placeholder="name@example.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Jenis Kelamin</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="jenis_kelamin"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                           lanang
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="jenis_kelamin"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            wedok
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Alamat</label>
+                                    <input type="text" name="alamat" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="name@example.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">No. telfon</label>
+                                    <input type="number" name="no_telfone" class="form-control"
+                                        id="exampleFormControlInput1" placeholder="name@example.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Kelas</label>
+                                    <select class="form-select" name="kelas_id" aria-label="Default select example">
+                                        <option value="" disabled selected>Pilih kelas</option>
+                                        @foreach ($kelas as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-        <label for="nama_siswa">Nama Siswa:</label>
-        <input type="text" name="nama_siswa" id="nama_siswa"><br>
-
-        <label for="jenis_kelamin">Jenis Kelamin:</label>
-        <input type="text" name="jenis_kelamin" id="jenis_kelamin"><br>
-
-        <label for="alamat">Alamat:</label>
-        <input type="text" name="alamat" id="alamat"><br>
-
-        <label for="no_telfone">No. Telfon:</label>
-        <input type="text" name="no_telfone" id="no_telfone"><br>
-
-        <label for="kelas_id">Kelas ID:</label>
-        <select class="form-select" name="kelas_id" aria-label="Default select example">
-            <option selected></option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-
-        <button type="submit">Tambah Siswa</button>
-    </form>
-
-    <!-- Daftar Siswa -->
-    <h2>Daftar Siswa</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Profile</th>
-                <th>Nama Siswa</th>
-                <th>Jenis Kelamin</th>
-                <th>Alamat</th>
-                <th>No. Telfon</th>
-                <th>Kelas ID</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($siswa as $key => $data)
-                <tr>
-                    <td>{{ $key + 1 }}</td>
-                    <td>{{ $data->profile }}</td>
-                    <td>{{ $data->nama_siswa }}</td>
-                    <td>{{ $data->jenis_kelamin }}</td>
-                    <td>{{ $data->alamat }}</td>
-                    <td>{{ $data->no_telfone }}</td>
-                    <td>{{ $data->kelas_id }}</td>
-                    <td>
-                        <a href="{{ route('siswa.edit', $data->id) }}">Edit</a>
-                        <form action="{{ route('siswa.destroy', $data->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Hapus</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
                         </form>
-                    </td>
-                </tr>
-            @endforeach
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Profile</th>
+                        <th>Nama Siswa</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Alamat</th>
+                        <th>No. Telfon</th>
+                        <th>Kelas</th>
+                        <th>Jurusan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    <tr>
+                        <td>
+                            <img src="{{ asset('assets/img/avatars/5.png') }}" alt="Avatar" style="width: 50px"
+                                class="rounded-circle">
+                        </td>
+                        <td>Romy pratama</td>
+                        <td>Laki-laki</td>
+                        <td>085345262</td>
+                        <td><span class="badge bg-label-primary me-1">hadir</span></td>
+                        <td>XII</td>
+                        <td>RPL</td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                    data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-pencil me-1"></i>
+                                        Edit</a>
+                                    <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash me-1"></i>
+                                        Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--/ Hoverable Table rows -->
 
+    <hr>
 @endsection
