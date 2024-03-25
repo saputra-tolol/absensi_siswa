@@ -59,14 +59,14 @@
                                 <small style="color: red">{{ $message }}</small>
                             @enderror
                         </div>
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="akses_kelas" class="form-label">Akses Kelas</label>
                             <select class="form-select" id="akses_kelas" name="akses_kelas">
                                 <option value="Laki-laki">X</option>
                                 <option value="Perempuan">XI</option>
                                 <option value="Perempuan">XII</option>
                             </select>
-                        </div>
+                        </div> --}}
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -103,7 +103,7 @@
                         <td>{{ $gurus->jenis_kelamin}}</td>
                         <td>{{ $gurus->email}}</td>
                         <td>{{ $gurus->password}}</td>
-                        <td>{{ $gurus->akses_kelas}}</td>
+                        {{-- <td>{{ $gurus->akses_kelas}}</td> --}}
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

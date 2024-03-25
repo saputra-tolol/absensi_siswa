@@ -20,7 +20,7 @@ class GuruController extends Controller
     {
 
         $request->validate([
-            'profil' => 'required|images|mimes:svg,jpg,jpeg,png',
+            'profil' => 'required|image|mimes:svg,jpg,jpeg,png',
             'nama' => 'required',
             'jenis_kelamin' => 'required',
             'email' => 'required|email|unique:gurus',
@@ -28,7 +28,7 @@ class GuruController extends Controller
             // 'akses_kelas' => 'nullable|exists:kelas,id'
         ],[
             'profil'=> 'Profil tidak boleh kosong',
-            'profil.images'=> 'Profil harus berupa gambar',
+            'profil.image'=> 'Profil harus berupa gambar',
             'profil.mimes'=> 'Profil harus berupa svg,jpg,jpeg,png',
             'nama'=> 'Nama tidak boleh kosong',
             'jenis_kelamin'=> 'Jenis Kelamin tidak boleh kosong',
@@ -45,7 +45,7 @@ class GuruController extends Controller
 
 
         Guru::create([
-            'profil' => $request->profil,
+            'profil' => $fileName,
             'nama' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,
             'email' => $request->email,
