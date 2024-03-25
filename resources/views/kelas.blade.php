@@ -10,7 +10,7 @@
 
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" style="margin-left: 20px;margin-bottom: 20px" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Tambah kelas
             </button>
 
