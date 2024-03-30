@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('kelas_id');
+            $table->unsignedBigInteger('siswa_id');
+            $table->string('keterangan');
+            $table->string('tanggal');
+            $table->string('bulan');
             $table->timestamps();
         });
     }

@@ -5,9 +5,9 @@
 @section('content')
     <!-- Hoverable Table rows -->
     <div class="card">
-        <h5 class="card-header">absensi bulan</h5>
-        {{-- <input type="text" class="form-control" value="Maret" disabled> --}}
+        <h5 class="card-header d-flex">absensi bulan  <input type="text" class="form-control" value="{{$bulanIni}}" disabled></h5>
         <div class="table-responsive text-nowrap">
+
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
@@ -19,47 +19,17 @@
                         <th colspan="4">jumlah</th>
 
                     </tr>
-                    <tr id="tableheader">
+                    <tr>
+                        @for ($i = 1; $i <= $totalDaysInMonth; $i++)
+
+                        <th><a href="{{route('absensi')}}">{{ $i }}</a></th>
+                    @endfor
+                    <th>H</th>
+                    <th>T</th>
+                    <th>S</th>
+                    <th>A</th>
                     </tr>
                 </thead>
-                <script>
-                    // Dapatkan tanggal sekarang
-                    const now = new Date();
-
-                    // Dapatkan jumlah hari dalam bulan ini
-                    const totalDaysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-
-                      // Ubah nilai atribut colspan pada elemen tanggal
-                      const tanggalHeader = document.getElementById('tanggalHeader');
-                    tanggalHeader.colSpan = totalDaysInMonth;
-
-                    // Ambil elemen tabel header
-                    const tableHeader = document.getElementById('tableheader');
-
-                    // Tambahkan elemen-elemen th ke tabel header berdasarkan jumlah hari dalam bulan
-                    for (let i = 1; i <= totalDaysInMonth; i++) {
-                        const th = document.createElement('th');
-                        th.textContent = i;
-                        tableHeader.appendChild(th);
-                    }
-
-                     // Tambahkan elemen untuk H, T, S, A setelah elemen tanggal
-                    const thH = document.createElement('th');
-                    thH.textContent = 'H';
-                    tableHeader.appendChild(thH);
-
-                    const thT = document.createElement('th');
-                    thT.textContent = 'T';
-                    tableHeader.appendChild(thT);
-
-                    const thS = document.createElement('th');
-                    thS.textContent = 'S';
-                    tableHeader.appendChild(thS);
-
-                    const thA = document.createElement('th');
-                    thA.textContent = 'A';
-                    tableHeader.appendChild(thA);
-                </script>
 
                 <tbody class="table-border-bottom-0">
                     <tr>
@@ -156,4 +126,42 @@
         </div>
     </div>
     <hr>
+      {{-- <script>
+                    // Dapatkan tanggal sekarang
+                    const now = new Date();
+
+                    // Dapatkan jumlah hari dalam bulan ini
+                    const totalDaysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+
+                      // Ubah nilai atribut colspan pada elemen tanggal
+                      const tanggalHeader = document.getElementById('tanggalHeader');
+                    tanggalHeader.colSpan = totalDaysInMonth;
+
+                    // Ambil elemen tabel header
+                    const tableHeader = document.getElementById('tableheader');
+
+                    // Tambahkan elemen-elemen th ke tabel header berdasarkan jumlah hari dalam bulan
+                    for (let i = 1; i <= totalDaysInMonth; i++) {
+                        const th = document.createElement('th');
+                        th.textContent = i;
+                        tableHeader.appendChild(th);
+                    }
+
+                     // Tambahkan elemen untuk H, T, S, A setelah elemen tanggal
+                    const thH = document.createElement('th');
+                    thH.textContent = 'H';
+                    tableHeader.appendChild(thH);
+
+                    const thT = document.createElement('th');
+                    thT.textContent = 'T';
+                    tableHeader.appendChild(thT);
+
+                    const thS = document.createElement('th');
+                    thS.textContent = 'S';
+                    tableHeader.appendChild(thS);
+
+                    const thA = document.createElement('th');
+                    thA.textContent = 'A';
+                    tableHeader.appendChild(thA);
+                </script> --}}
 @endsection

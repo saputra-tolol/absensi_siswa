@@ -25,7 +25,7 @@ Route::post('registerproses', [AuthController::class, 'registerproses'])->name('
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-
+Route::get('absensi', [DashboardController::class, 'absensi'])->name('absensi');
 
 
 Route::get('guru', [GuruController::class, 'guru'])->name('guru');
