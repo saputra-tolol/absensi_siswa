@@ -21,7 +21,7 @@
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-            <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle">dontol</i>
+            <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
             <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
         </a>
     </div>
@@ -37,26 +37,26 @@
             </a>
         </li>
 
-        <li class="menu-item{{ request()->is('') ? ' active' : '' }}">
-            <a href="" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-book"></i>
+        <li class="menu-item{{ request()->is('absensi*') ? ' active' : '' }}">
+            <a href="{{ route('absensi')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-pencil"></i>
                 <div>absensi</div>
             </a>
         </li>
         <li class="menu-item{{ request()->is('kelas*') ? ' active' : '' }}">
-            <a href="{{ ('kelas') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-layout-grid"></i>
+            <a href="{{ route('kelas') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-book"></i>
                 <div>data kelas</div>
             </a>
         </li>
         <li class="menu-item{{ request()->is('siswa*') ? ' active' : '' }}">
-            <a href="{{ ('siswa') }}" class="menu-link">
+            <a href="{{ route('siswa') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-users"></i>
                 <div>data siswa</div>
             </a>
         </li>
         <li class="menu-item{{ request()->is('guru*') ? ' active' : '' }}">
-            <a href="{{ ('guru') }}" class="menu-link">
+            <a href="{{ route('guru') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-user"></i>
                 <div>data guru</div>
             </a>

@@ -11,17 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('siswas', function (Blueprint $table) {
+        Schema::create('gurus', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('profile');
-            $table->string('nama_siswa');
+            $table->string('profil');
+            $table->string('nama');
             $table->string('jenis_kelamin');
-            $table->string('alamat');
-            $table->string('no_telfone');
+            $table->string('email');
+            $table->string('password');
             $table->unsignedBigInteger('kelas_id')->nullable();
-            // Menggunakan foreign key dengan konstrain ke tabel kelas
             $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('siswas');
+        Schema::dropIfExists('gurus');
     }
 };

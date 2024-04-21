@@ -56,4 +56,11 @@ class KelasController extends Controller
             return redirect()->route('kelas')->with('success', 'Data kelas berhasil dihapus');
 
     }
+
+    public function detail_kelas($id){
+        $kelas = Kelas::findOrFail($id);
+        $siswa = $kelas->siswa;
+
+        return view('detail_kelas', compact('kelas','siswa'));
+    }
 }

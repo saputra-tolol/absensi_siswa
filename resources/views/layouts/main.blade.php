@@ -26,7 +26,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon"
         href="https://demos.pixinvent.com/vuexy-html-laravel-admin-template/demo/assets/img/favicon/favicon.ico" />
-
+    @stack('styles')
 
     <!-- Google Tag Manager (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <script>
@@ -209,7 +209,7 @@
 <!-- END: Pricing Modal JS-->
 <!-- BEGIN: Page JS-->
 <!-- END: Page JS-->
-
+@stack('script')
 </body>
 
 

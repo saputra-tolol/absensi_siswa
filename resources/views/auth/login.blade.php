@@ -52,9 +52,15 @@
 
             <div class="form-group">
                 <input type="text" class="form-control" name="email" placeholder="Email">
+                @error('email')
+<small style="color: red">{{$message}}</small>
+                @enderror
               </div>
             <div class="form-group">
               <input type="password" class="form-control" name="password" placeholder="Password">
+              @error('password')
+<small style="color: red">{{$message}}</small>
+                @enderror
             </div>
             <div class="d-felx">
                 <p>Belum Punya Akun?</p>

@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('siswas', function (Blueprint $table) {
+        Schema::create('absensis', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('siswa_id');
+            $table->unsignedBigInteger('kelas_id');
+            $table->date('tanggal');
+            $table->string('keterangan');
             $table->timestamps();
-            $table->string('profile');
-            $table->string('nama_siswa');
-            $table->string('jenis_kelamin');
-            $table->string('alamat');
-            $table->string('no_telfone');
-            $table->unsignedBigInteger('kelas_id')->nullable();
-            // Menggunakan foreign key dengan konstrain ke tabel kelas
+
+            // Menambahkan foreign key constraint
+            $table->foreign('siswa_id')->references('id')->on('siswas')->onDelete('cascade');
             $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('siswas');
+        Schema::dropIfExists('absensis');
     }
 };

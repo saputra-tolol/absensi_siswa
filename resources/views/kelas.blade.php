@@ -78,6 +78,9 @@
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                         data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                                     <div class="dropdown-menu">
+                                        <a class="dropdown-item" type="submit" href="{{route('detail_kelas' , $gito->id)}}"><i
+                                                class="ti ti-list me-1"></i>
+                                            detail</a>
                                         <button class="dropdown-item" type="submit" data-bs-toggle="modal"
                                             data-bs-target="#edit_kelas{{ $gito->id }}"><i
                                                 class="ti ti-pencil me-1"></i>
