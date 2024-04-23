@@ -4,9 +4,7 @@
 @section('content')
     {{-- modal tambah data  guru --}}
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Tambah Guru
-    </button>
+
 
 
     <!-- Modal -->
@@ -59,14 +57,15 @@
                                 <small style="color: red">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- <div class="mb-3">
-                            <label for="akses_kelas" class="form-label">Akses Kelas</label>
-                            <select class="form-select" id="akses_kelas" name="akses_kelas">
-                                <option value="Laki-laki">X</option>
-                                <option value="Perempuan">XI</option>
-                                <option value="Perempuan">XII</option>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Kelas</label>
+                            <select class="form-select" name="kelas_id" aria-label="Default select example">
+                                <option value="" disabled selected>Pilih kelas</option>
+                                @foreach ($kelas as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama_kelas }}</option>
+                                @endforeach
                             </select>
-                        </div> --}}
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -80,7 +79,10 @@
     <div class="card">
         <h5 class="card-header">Data Guru</h5>
         <div class="table-responsive text-nowrap">
-            <table class="table table-hover">
+            <button type="button" class="btn btn-primary mb-3 mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Tambah Guru
+            </button>
+            <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
                         <th>Profil</th>
@@ -94,6 +96,7 @@
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @foreach ($guru as $gurus)
+<<<<<<< Updated upstream
                     <tr>
                         <td>
                             <img src="{{ asset('storage/images/' . $gurus->profil) }}" alt="Avatar" style="width: 50px"
@@ -113,11 +116,32 @@
                                         Edit</a>
                                     <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash me-1"></i>
                                         Delete</a>
+=======
+                        <tr>
+                            <td>
+                                <img src="{{ asset('storage/images/' . $gurus->profil) }}" alt="Avatar"
+                                    style="width: 50px" class="rounded-circle">
+                            </td>
+                            <td>{{ $gurus->nama }}</td>
+                            <td>{{ $gurus->jenis_kelamin }}</td>
+                            <td>{{ $gurus->email }}</td>
+                            <td>{{ $gurus->password }}</td>
+                            <td>{{ $gurus->kelas->nama_kelas}}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:void(0);"><i
+                                                class="ti ti-pencil me-1"></i>
+                                            Edit</a>
+                                        <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash me-1"></i>
+                                            Delete</a>
+                                    </div>
+>>>>>>> Stashed changes
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-
+                            </td>
+                        </tr>
                     @endforeach
 
                 </tbody>

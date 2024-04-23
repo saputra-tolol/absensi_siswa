@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Guru;
+use App\Models\Kelas;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -13,7 +14,9 @@ class GuruController extends Controller
     public function guru()
     {
         $guru = Guru::all();
-        return view('guru.guru', compact('guru'));
+        $kelas = Kelas::all();
+        return view('guru.guru', compact('guru','kelas'));
+
     }
 
     public function store(Request $request)
@@ -25,7 +28,7 @@ class GuruController extends Controller
             'jenis_kelamin' => 'required',
             'email' => 'required|email|unique:gurus',
             'password' => 'required',
-            // 'akses_kelas' => 'nullable|exists:kelas,id'
+            'kelas_id' => 'nullable|exists:kelas,id'
         ],[
             'profil'=> 'Profil tidak boleh kosong',
             'profil.image'=> 'Profil harus berupa gambar',
@@ -50,7 +53,7 @@ class GuruController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'email' => $request->email,
             'password' => $request->password,
-            // 'akses_kelas' => 'X'
+            'kelas_id' => $request->kelas_id,
         ]);
 
         return redirect()->route('guru')->with('success', 'Guru berhasil ditambahkan.');

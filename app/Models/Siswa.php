@@ -20,6 +20,7 @@ class Siswa extends Model
         'kelas_id',
     ];
 
+<<<<<<< Updated upstream
     public function kelas()
     {
         return $this->belongsTo(Kelas::class);
@@ -29,5 +30,17 @@ class Siswa extends Model
     {
         return $this->hasMany(Absensi::class);
     }
+=======
+    /**
+     * Get the kelas that owns the Siswa
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function kelas(): BelongsTo
+    {
+        return $this->belongsTo(Kelas::class,);
+    }
+
+>>>>>>> Stashed changes
     // Jika relasi diperlukan, tambahkan relasi di sini
 }
