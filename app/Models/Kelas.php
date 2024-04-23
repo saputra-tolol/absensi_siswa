@@ -9,7 +9,6 @@ class Kelas extends Model
 {
     use HasFactory;
     protected $guarded = [];
-<<<<<<< Updated upstream
 
     public function siswas()
     {
@@ -26,15 +25,4 @@ class Kelas extends Model
     {
         return $this->belongsTo(Guru::class);
     }
-=======
-    /**
-     * Get all of the comments for the Kelas
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function siswa(): HasMany
-    {
-        return $this->hasMany(Siswa::class);
-    }
->>>>>>> Stashed changes
 }
